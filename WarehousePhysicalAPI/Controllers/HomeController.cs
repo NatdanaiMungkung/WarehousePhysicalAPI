@@ -12,7 +12,7 @@ namespace WarehousePhysicalAPI.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            return View("~/Views/React/index.cshtml");
         }
     }
 }

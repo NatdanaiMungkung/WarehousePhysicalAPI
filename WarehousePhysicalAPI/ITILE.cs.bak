@@ -1,0 +1,185 @@
+namespace WarehousePhysicalAPI
+{
+    using System;
+    using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+
+    public partial class ITILE : DbContext
+    {
+        public ITILE()
+            : base("name=ITILE")
+        {
+        }
+
+        public virtual DbSet<T_ARTICOLI_CONF_FLAT> T_ARTICOLI_CONF_FLAT { get; set; }
+        public virtual DbSet<WMS_GESTIONE_UDC> WMS_GESTIONE_UDC { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_HOL_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_AR_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_QTA_UM_BASE)
+                .HasPrecision(10, 2);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_UM_ALTERNATIVA)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_QTA_UM_ALT)
+                .HasPrecision(11, 3);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_RIF_ESTERNO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_RIF_TIPO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_IMB_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_ARTICOLI_CONF_FLAT>()
+                .Property(e => e.ACF_EAN)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.HOLDING)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.UDC)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.AREA)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.LOCAZIONE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.POSIZIONE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.STATO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.STATO_COLORE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.LOTTO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.LOTTO_ESTERNO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.ARTICOLO_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.ARTICOLO_DESCRIZIONE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.ARTICOLO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.CONFORMAZIONE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.QTA_PRINCIPALE)
+                .HasPrecision(14, 4);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.QTA_SECONDARIA)
+                .HasPrecision(14, 4);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.QTA_INIZIALE)
+                .HasPrecision(12, 3);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.QTA_INIZIALE_SECONDARIA)
+                .HasPrecision(12, 3);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.ATTRIBUTO_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.ATTRIBUTO_DESCRIZIONE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.ATTRIBUTO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.PROPRIETARIO_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.PROPRIETARIO_DESC)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.PROPRIETARIO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.FORNITORE_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.FORNITORE_DESC)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.FORNITORE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.PRODUTTORE_CODICE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.PRODUTTORE_DESC)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.PRODUTTORE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.TAG)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.UM_CUSTOM)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WMS_GESTIONE_UDC>()
+                .Property(e => e.UDC_NOTE)
+                .IsUnicode(false);
+        }
+    }
+}
